@@ -9,8 +9,7 @@ module.exports = (mongoose) => {
         email: String,
         favoriteColor: String,
         birthday: String,
-      },
-      { timestamps: true }
+      }
     )
   );
 

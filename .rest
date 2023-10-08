@@ -1,4 +1,24 @@
-###
+## LOCALHOST
+### Get all contacts
 GET http://localhost:8080/contacts/
+accept: application/xml
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+### Update a contact
+GET http://localhost:8080/contacts/9 HTTP/1.1
+accept: application/xml
+Content-Type: application.application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+{
+    "firstName":"Wall",
+    "lastName":"Guy",
+    "email":"idontlikehim@bad.com",
+    "favoriteColor":"Black",
+    "birthday":"05/05/1994"
+}
+
+## PRODUCTION
+### Get all contacts
+GET https://cse341-w4.onrender.com/contacts/
 accept: application/xml
 apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
