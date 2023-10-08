@@ -1,12 +1,32 @@
 ## LOCALHOST
 ### Get all contacts
 GET http://localhost:8080/contacts/
-accept: application/xml
+accept: application/json
 apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
-### Update a contact
-GET http://localhost:8080/contacts/9 HTTP/1.1
-accept: application/xml
-Content-Type: application.application/json
+
+### Get by ID
+GET http://localhost:8080/contacts/650fbbde1673b72254b95d18
+accept: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+### Create contact
+POST http://localhost:8080/contacts/
+accept: application/json
+Content-Type: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+{
+    "firstName":"any",
+    "lastName":"any",
+    "email":"any",
+    "favoriteColor":"any",
+    "birthday":"any"
+}
+
+### Update contact
+PUT http://localhost:8080/contacts/652235e27fffbd420b206bc9
+accept: application/json
+Content-Type: application/json
 apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
 
 {
@@ -17,8 +37,53 @@ apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRll
     "birthday":"05/05/1994"
 }
 
+### Delete contact
+DELETE http://localhost:8080/contacts/652235e27fffbd420b206bc9
+accept: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+
+
 ## PRODUCTION
 ### Get all contacts
 GET https://cse341-w4.onrender.com/contacts/
-accept: application/xml
+accept: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+### Get by ID
+GET https://cse341-w4.onrender.com/contacts/650fbbde1673b72254b95d18
+accept: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+### Create contact
+POST https://cse341-w4.onrender.com/contacts/
+accept: application/json
+Content-Type: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+{
+    "firstName":"any",
+    "lastName":"any",
+    "email":"any",
+    "favoriteColor":"any",
+    "birthday":"any"
+}
+
+### Update contact
+PUT https://cse341-w4.onrender.com/contacts/652235e27fffbd420b206bc9
+accept: application/json
+Content-Type: application/json
+apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N
+
+{
+    "firstName":"Wall",
+    "lastName":"Guy",
+    "email":"idontlikehim@bad.com",
+    "favoriteColor":"Black",
+    "birthday":"05/05/1994"
+}
+
+### Delete contact
+DELETE https://cse341-w4.onrender.com/contacts/652235e27fffbd420b206bc9
+accept: application/json
 apiKey: Ezl0961tEpx2UxTZ5v2uKFK91qdNAr5npRlMT1zLcE3Mg68Xwaj3N8Dyp1R8IvFenrVwHRllOUxF0Og00l0m9NcaYMtH6Bpgdv7N

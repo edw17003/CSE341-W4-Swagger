@@ -7,7 +7,7 @@ const apiKey =
 
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name) {
+  if (!req.body.firstName) {
     res.status(400).send({ message: 'Content can not be empty!' });
     return;
   }
@@ -87,30 +87,28 @@ exports.findOne = (req, res) => {
 // Update a single contact by id
 exports.updateOne = async (req, res) => {
   const _id = new mongodb.ObjectId(req.params._id);
-  const hexString = _id.toHexString();
-  const integerId = parseInt(hexString, 16);
   const contact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    birthday: req.body.birthday,
   };
-  try {
-    if (req.header('apiKey') === apiKey) {
-      const data = await Contact.replaceOne({ _id: integerId }, contact);
-      if (data.n) {
-        res.send({ message: 'Contact updated successfully.' });
-      } else {
-        res.status(404).send({ message: 'Contact not found with id ' + _id });
+
+  if (req.header('apiKey') === apiKey) {
+    try {
+      const updatedContact = await Contact.findByIdAndUpdate(_id, contact, { new: true });
+
+      if (!updatedContact) {
+        return res.status(404).send({ message: 'No contact found with id ' + _id});
       }
-    } else {
-      res.send('Invalid apiKey, please read the documentation.');
+
+      return res.status(200).json(updatedContact);
+    } catch (err) {
+      return res.status(500).send({ message: 'Error updating contact: ' + err.message });
     }
-  } catch (err) {
-    res.status(500).send({
-      message: 'Error updating contact with id ' + _id + '. ' + err,
-    });
+  } else {
+    return res.status(401).send('Invalid apiKey, please read the documentation.');
   }
 };
 
